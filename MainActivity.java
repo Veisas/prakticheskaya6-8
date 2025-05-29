@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Инициализация базы данных
+        
         SQLiteOpenHelper dbHelper = new SQLiteOpenHelper(this, "notepad.db", null, 1) {
             @Override
             public void onCreate(SQLiteDatabase db) {
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         };
         database = dbHelper.getWritableDatabase();
 
-        // Инициализация элементов интерфейса
+       
         listView = findViewById(R.id.listView);
         selectedNoteTextView = findViewById(R.id.selectedNoteTextView);
         deleteButton = findViewById(R.id.deleteButton);
@@ -54,10 +54,10 @@ public class MainActivity extends AppCompatActivity {
         aboutButton = findViewById(R.id.aboutButton);
         exitButton = findViewById(R.id.exitButton);
 
-        // Загрузка заметок
+        
         loadNotes();
 
-        // Обработчики событий
+        
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -134,10 +134,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showNotepad() {
-        // Скрываем основные элементы
+        
         findViewById(R.id.mainLayout).setVisibility(View.GONE);
         
-        // Создаем элементы для редактирования
+       
         LinearLayout notepadLayout = new LinearLayout(this);
         notepadLayout.setOrientation(LinearLayout.VERTICAL);
         notepadLayout.setPadding(32, 32, 32, 32);
@@ -190,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         
-        // Добавляем элементы в layout
+       
         notepadLayout.addView(titleLabel);
         notepadLayout.addView(titleEdit);
         notepadLayout.addView(contentLabel);
@@ -210,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showAbout() {
-        // Скрываем основные элементы
+        
         findViewById(R.id.mainLayout).setVisibility(View.GONE);
         
         // Создаем элементы "О программе"
@@ -233,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         
-        // Добавляем элементы в layout
+        
         aboutLayout.addView(aboutText);
         aboutLayout.addView(backButton);
         
